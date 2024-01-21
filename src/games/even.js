@@ -1,8 +1,9 @@
 import readlineSync from 'readline-sync';
 import { greeting } from '../greeting.js';
 import { DEFAULT_ROUNDS_COUNT } from '../constants.js';
+import { repeat } from '../repeat.js';
 
-const question = (name, countGame) => {
+const question = () => {
   const randomNum = Math.round(Math.random() * 100);
   const isNumEven = randomNum % 2 === 0;
 
@@ -13,10 +14,6 @@ const question = (name, countGame) => {
 
   if (isNumEven === parsedAnswer) {
     console.log('Correct!');
-
-    if (countGame > 1) {
-      return question(name, countGame - 1);
-    }
 
     return true;
   }
@@ -34,7 +31,7 @@ export const even = (roundsCount = DEFAULT_ROUNDS_COUNT) => {
   const name = greeting();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-  const success = question(name, roundsCount);
+  const success = repeat(question, roundsCount);
 
   if (success) {
     console.log(`Congratulations, ${name}!`);
