@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import { greeting } from '../greeting.js';
 import { DEFAULT_ROUNDS_COUNT } from '../constants.js';
 import { repeat } from '../repeat.js';
+import { handleComplete } from '../handleComplete.js';
 
 const question = () => {
   const randomNum = Math.round(Math.random() * 100);
@@ -33,9 +34,5 @@ export const even = (roundsCount = DEFAULT_ROUNDS_COUNT) => {
 
   const success = repeat(question, roundsCount);
 
-  if (success) {
-    console.log(`Congratulations, ${name}!`);
-  } else {
-    console.log(`Let's try again, ${name}!`);
-  }
+  handleComplete(name, success);
 };
