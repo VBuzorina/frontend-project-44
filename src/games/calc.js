@@ -30,9 +30,7 @@ const question = (name, countGame) => {
 
     return true;
   }
-  console.log(
-    `"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`
-  );
+  console.log(`"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`);
   return false;
 };
 
