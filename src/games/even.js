@@ -12,8 +12,6 @@ const question = () => {
   );
 
   if (isNumEven === transformedAnswer) {
-    console.log('Correct!');
-
     return true;
   }
 

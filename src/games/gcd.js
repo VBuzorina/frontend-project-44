@@ -24,8 +24,6 @@ const question = () => {
   const { answer, transformedAnswer } = getAnswer((input) => parseInt(input, 10));
 
   if (resultAoB === transformedAnswer) {
-    console.log('Correct!');
-
     return true;
   }
   console.log(
