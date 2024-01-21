@@ -7,17 +7,17 @@ const question = () => {
 
   console.log('Question:', randomNum);
 
-  const { answer, parsedAnswer } = getAnswer(
+  const { answer, transformedAnswer } = getAnswer(
     (input) => input.toLocaleLowerCase() === 'yes',
   );
 
-  if (isNumEven === parsedAnswer) {
+  if (isNumEven === transformedAnswer) {
     console.log('Correct!');
 
     return true;
   }
 
-  if (parsedAnswer) {
+  if (transformedAnswer) {
     console.log(`"${answer}" is wrong answer ;(. Correct answer was "no".`);
   } else {
     console.log(`"${answer}" is wrong answer ;(. Correct answer was "yes".`);

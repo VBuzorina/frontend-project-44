@@ -1,13 +1,13 @@
 import readlineSync from 'readline-sync';
 
-const defaultParser = (value) => value;
+const defaultTransform = (value) => value;
 
-export const getAnswer = (parser = defaultParser) => {
+export const getAnswer = (transformAnswer = defaultTransform) => {
   const answer = readlineSync.question('Your answer: ');
-  const parsedAnswer = parser(answer);
+  const transformedAnswer = transformAnswer(answer);
 
   return {
     answer,
-    parsedAnswer,
+    transformedAnswer,
   };
 };
