@@ -15,10 +15,9 @@ const question = () => {
   } else {
     correctAnswer = randomNumA * randomNumB;
   }
+  const message = `${randomNumA} ${randomOperator} ${randomNumB}`;
 
-  console.log(`Question: ${randomNumA} ${randomOperator} ${randomNumB}`);
-
-  const { answer, transformedAnswer } = getAnswer((input) => parseInt(input, 10));
+  const { answer, transformedAnswer } = getAnswer(message, (input) => parseInt(input, 10));
 
   return {
     success: correctAnswer === transformedAnswer,

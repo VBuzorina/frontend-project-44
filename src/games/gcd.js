@@ -19,9 +19,9 @@ const question = () => {
 
   const correctAnswer = getDivisor(randomNumA, randomNumB);
 
-  console.log(`Question: ${randomNumA} ${randomNumB}`);
+  const message = `${randomNumA} ${randomNumB}`;
 
-  const { answer, transformedAnswer } = getAnswer((input) => parseInt(input, 10));
+  const { answer, transformedAnswer } = getAnswer(message, (input) => parseInt(input, 10));
 
   return {
     success: correctAnswer === transformedAnswer,

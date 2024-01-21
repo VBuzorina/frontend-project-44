@@ -5,9 +5,10 @@ const question = () => {
   const randomNum = Math.round(Math.random() * 100);
   const isNumEven = randomNum % 2 === 0;
 
-  console.log('Question:', randomNum);
+  const message = `${randomNum}`;
 
   const { answer, transformedAnswer } = getAnswer(
+    message,
     (input) => input.toLocaleLowerCase() === 'yes',
   );
 
