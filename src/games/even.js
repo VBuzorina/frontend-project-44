@@ -1,8 +1,5 @@
 import readlineSync from 'readline-sync';
-import { greeting } from '../greeting.js';
-import { DEFAULT_ROUNDS_COUNT } from '../constants.js';
-import { repeat } from '../repeat.js';
-import { handleComplete } from '../handleComplete.js';
+import { createGame } from '../createGame.js';
 
 const question = () => {
   const randomNum = Math.round(Math.random() * 100);
@@ -28,11 +25,7 @@ const question = () => {
   return false;
 };
 
-export const even = (roundsCount = DEFAULT_ROUNDS_COUNT) => {
-  const name = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-  const success = repeat(question, roundsCount);
-
-  handleComplete(name, success);
-};
+export const even = createGame(
+  'Answer "yes" if the number is even, otherwise answer "no".',
+  question,
+);
