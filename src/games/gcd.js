@@ -1,6 +1,5 @@
-import readlineSync from 'readline-sync';
-import { greeting } from '../greeting.js';
-import { DEFAULT_ROUNDS_COUNT } from '../constants.js';
+import { createGame } from '../createGame.js';
+import { getAnswer } from '../getAnswer.js';
 
 const getDivisor = (numA, numB) => {
   const stack = [];
@@ -14,7 +13,7 @@ const getDivisor = (numA, numB) => {
   return stack.pop();
 };
 
-const question = (name, countGame) => {
+const question = () => {
   const randomNumA = Math.round(Math.random() * 100);
   const randomNumB = Math.round(Math.random() * 100);
 
@@ -22,15 +21,10 @@ const question = (name, countGame) => {
 
   console.log(`Question: ${randomNumA} ${randomNumB}`);
 
-  const answer = readlineSync.question('Your answer: ');
-  const parsedAnswer = parseInt(answer, 10);
+  const { answer, transformedAnswer } = getAnswer((input) => parseInt(input, 10));
 
-  if (resultAoB === parsedAnswer) {
+  if (resultAoB === transformedAnswer) {
     console.log('Correct!');
-
-    if (countGame > 1) {
-      return question(name, countGame - 1);
-    }
 
     return true;
   }
@@ -40,15 +34,7 @@ const question = (name, countGame) => {
   return false;
 };
 
-export const gcd = (roundsCount = DEFAULT_ROUNDS_COUNT) => {
-  const name = greeting();
-  console.log('Find the greatest common divisor of given numbers.');
-
-  const success = question(name, roundsCount);
-
-  if (success) {
-    console.log(`Congratulations, ${name}!`);
-  } else {
-    console.log(`Let's try again, ${name}!`);
-  }
-};
+export const gcd = createGame(
+  'Find the greatest common divisor of given numbers.',
+  question,
+);
