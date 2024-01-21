@@ -2,27 +2,30 @@ import readlineSync from 'readline-sync';
 import { greeting } from '../greeting.js';
 import { DEFAULT_ROUNDS_COUNT } from '../constants.js';
 
+const getDivisor = (numA, numB) => {
+  const stack = [];
+  let divisor = 1;
+  while (divisor <= numA && divisor <= numB) {
+    if (numA % divisor === 0 && numB % divisor === 0) {
+      stack.push(divisor);
+    }
+    divisor += 1;
+  }
+  return stack.pop();
+};
+
 const question = (name, countGame) => {
   const randomNumA = Math.round(Math.random() * 100);
   const randomNumB = Math.round(Math.random() * 100);
-  const divisorAB = (numA, numB) => {
-    const stack = [];
-    let divisor = 1;
-    while (divisor <= numA && divisor <= numB) {
-      if (numA % divisor === 0 && numB % divisor === 0) {
-        stack.push(divisor);
-      }
-      divisor += 1;
-    }
-    return stack.pop();
-  };
-  const resultAoB = divisorAB(randomNumA, randomNumB);
+
+  const resultAoB = getDivisor(randomNumA, randomNumB);
 
   console.log(`Question: ${randomNumA} ${randomNumB}`);
 
-  const answer = parseInt(readlineSync.question('Your answer: '), 10);
+  const answer = readlineSync.question('Your answer: ');
+  const parsedAnswer = parseInt(answer, 10);
 
-  if (resultAoB === answer) {
+  if (resultAoB === parsedAnswer) {
     console.log('Correct!');
 
     if (countGame > 1) {
@@ -32,7 +35,7 @@ const question = (name, countGame) => {
     return true;
   }
   console.log(
-    `"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`
+    `"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`,
   );
   return false;
 };

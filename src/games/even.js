@@ -9,9 +9,9 @@ const question = (name, countGame) => {
   console.log('Question:', randomNum);
 
   const answer = readlineSync.question('Your answer: ');
-  const answerBool = answer.toLocaleLowerCase() === 'yes';
+  const parsedAnswer = answer.toLocaleLowerCase() === 'yes';
 
-  if (isNumEven === answerBool) {
+  if (isNumEven === parsedAnswer) {
     console.log('Correct!');
 
     if (countGame > 1) {
@@ -21,7 +21,7 @@ const question = (name, countGame) => {
     return true;
   }
 
-  if (answerBool) {
+  if (parsedAnswer) {
     console.log(`"${answer}" is wrong answer ;(. Correct answer was "no".`);
   } else {
     console.log(`"${answer}" is wrong answer ;(. Correct answer was "yes".`);

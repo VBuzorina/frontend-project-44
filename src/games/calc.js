@@ -19,9 +19,10 @@ const question = (name, countGame) => {
 
   console.log(`Question: ${randomNumA} ${randomOperator} ${randomNumB}`);
 
-  const answer = parseInt(readlineSync.question('Your answer: '), 10);
+  const answer = readlineSync.question('Your answer: ');
+  const parsedAnswer = parseInt(answer, 10);
 
-  if (resultAoB === answer) {
+  if (resultAoB === parsedAnswer) {
     console.log('Correct!');
 
     if (countGame > 1) {
@@ -31,7 +32,7 @@ const question = (name, countGame) => {
     return true;
   }
   console.log(
-    `"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`
+    `"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`,
   );
   return false;
 };
