@@ -9,9 +9,9 @@ export const createGame = (title, question) => {
 
     console.log(title);
 
-    const success = repeat(question, roundsCount);
+    const result = repeat(question, roundsCount);
 
-    handleComplete(name, success);
+    handleComplete(name, result.success);
   };
 
   return game;

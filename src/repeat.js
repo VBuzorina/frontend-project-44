@@ -1,13 +1,17 @@
 export const repeat = (question, countGame) => {
-  const success = question();
+  const result = question();
 
-  if (success) {
+  if (result.success) {
     console.log('Correct!');
+  } else {
+    console.log(
+      `"${result.answer}" is wrong answer ;(. Correct answer was "${result.correctAnswer}".`,
+    );
   }
 
-  if (success && countGame > 1) {
+  if (result.success && countGame > 1) {
     return repeat(question, countGame - 1);
   }
 
-  return success;
+  return result;
 };

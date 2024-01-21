@@ -6,27 +6,25 @@ const question = () => {
   const randomNumB = Math.round(Math.random() * 100);
   const symbols = ['+', '-', '*'];
   const randomOperator = symbols[Math.floor(Math.random() * 3)];
-  let resultAoB = 0;
+  let correctAnswer = 0;
 
   if (randomOperator === '+') {
-    resultAoB = randomNumA + randomNumB;
+    correctAnswer = randomNumA + randomNumB;
   } else if (randomOperator === '-') {
-    resultAoB = randomNumA - randomNumB;
+    correctAnswer = randomNumA - randomNumB;
   } else {
-    resultAoB = randomNumA * randomNumB;
+    correctAnswer = randomNumA * randomNumB;
   }
 
   console.log(`Question: ${randomNumA} ${randomOperator} ${randomNumB}`);
 
   const { answer, transformedAnswer } = getAnswer((input) => parseInt(input, 10));
 
-  if (resultAoB === transformedAnswer) {
-    return true;
-  }
-  console.log(
-    `"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`,
-  );
-  return false;
+  return {
+    success: correctAnswer === transformedAnswer,
+    answer,
+    correctAnswer,
+  };
 };
 
 export const calc = createGame(

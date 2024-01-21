@@ -11,17 +11,13 @@ const question = () => {
     (input) => input.toLocaleLowerCase() === 'yes',
   );
 
-  if (isNumEven === transformedAnswer) {
-    return true;
-  }
+  const correctAnswer = transformedAnswer ? 'no' : 'yes';
 
-  if (transformedAnswer) {
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "no".`);
-  } else {
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "yes".`);
-  }
-
-  return false;
+  return {
+    success: isNumEven === transformedAnswer,
+    answer,
+    correctAnswer,
+  };
 };
 
 export const even = createGame(

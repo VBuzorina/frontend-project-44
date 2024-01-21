@@ -17,19 +17,17 @@ const question = () => {
   const randomNumA = Math.round(Math.random() * 100);
   const randomNumB = Math.round(Math.random() * 100);
 
-  const resultAoB = getDivisor(randomNumA, randomNumB);
+  const correctAnswer = getDivisor(randomNumA, randomNumB);
 
   console.log(`Question: ${randomNumA} ${randomNumB}`);
 
   const { answer, transformedAnswer } = getAnswer((input) => parseInt(input, 10));
 
-  if (resultAoB === transformedAnswer) {
-    return true;
-  }
-  console.log(
-    `"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`,
-  );
-  return false;
+  return {
+    success: correctAnswer === transformedAnswer,
+    answer,
+    correctAnswer,
+  };
 };
 
 export const gcd = createGame(
