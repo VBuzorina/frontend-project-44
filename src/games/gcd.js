@@ -5,21 +5,22 @@ import { DEFAULT_ROUNDS_COUNT } from '../constants.js';
 const question = (name, countGame) => {
   const randomNumA = Math.round(Math.random() * 100);
   const randomNumB = Math.round(Math.random() * 100);
-  // const symbols = ['+', '-', '*'];
-  // const randomOperator = symbols[Math.floor(Math.random() * 3)];
-  // let resultAoB = 0;
+  const divisorAB = (numA, numB) => {
+    const stack = [];
+    let divisor = 1;
+    while (divisor <= numA && divisor <= numB) {
+      if (numA % divisor === 0 && numB % divisor === 0) {
+        stack.push(divisor);
+      }
+      divisor += 1;
+    }
+    return stack.pop();
+  };
+  const resultAoB = divisorAB(randomNumA, randomNumB);
 
-  // if (randomOperator === '+') {
-  //   resultAoB = randomNumA + randomNumB;
-  // } else if (randomOperator === '-') {
-  //   resultAoB = randomNumA - randomNumB;
-  // } else {
-  //   resultAoB = randomNumA * randomNumB;
-  // }
+  console.log(`Question: ${randomNumA} ${randomNumB}`);
 
-  // console.log(`Question: ${randomNumA} ${randomOperator} ${randomNumB}`);
-
-  // const answer = parseInt(readlineSync.question('Your answer: '), 10);
+  const answer = parseInt(readlineSync.question('Your answer: '), 10);
 
   if (resultAoB === answer) {
     console.log('Correct!');
