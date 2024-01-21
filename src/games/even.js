@@ -1,44 +1,27 @@
-import readlineSync from 'readline-sync';
-import { greeting } from '../greeting.js';
-import { DEFAULT_ROUNDS_COUNT } from '../constants.js';
+import { createGame } from '../createGame.js';
+import { getAnswer } from '../getAnswer.js';
 
-const question = (name, countGame) => {
+const question = () => {
   const randomNum = Math.round(Math.random() * 100);
   const isNumEven = randomNum % 2 === 0;
 
-  console.log('Question:', randomNum);
+  const message = `${randomNum}`;
 
-  const answer = readlineSync.question('Your answer: ');
-  const answerBool = answer.toLocaleLowerCase() === 'yes';
+  const { answer, transformedAnswer } = getAnswer(
+    message,
+    (input) => input.toLocaleLowerCase() === 'yes',
+  );
 
-  if (isNumEven === answerBool) {
-    console.log('Correct!');
+  const correctAnswer = transformedAnswer ? 'no' : 'yes';
 
-    if (countGame > 1) {
-      return question(name, countGame - 1);
-    }
-
-    return true;
-  }
-
-  if (answerBool) {
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "no".`);
-  } else {
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "yes".`);
-  }
-
-  return false;
+  return {
+    success: isNumEven === transformedAnswer,
+    answer,
+    correctAnswer,
+  };
 };
 
-export const even = (roundsCount = DEFAULT_ROUNDS_COUNT) => {
-  const name = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-  const success = question(name, roundsCount);
-
-  if (success) {
-    console.log(`Congratulations, ${name}!`);
-  } else {
-    console.log(`Let's try again, ${name}!`);
-  }
-};
+export const even = createGame(
+  'Answer "yes" if the number is even, otherwise answer "no".',
+  question,
+);

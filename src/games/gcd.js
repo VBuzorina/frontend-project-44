@@ -1,51 +1,36 @@
-import readlineSync from 'readline-sync';
-import { greeting } from '../greeting.js';
-import { DEFAULT_ROUNDS_COUNT } from '../constants.js';
+import { createGame } from '../createGame.js';
+import { getAnswer } from '../getAnswer.js';
 
-const question = (name, countGame) => {
+const getDivisor = (numA, numB) => {
+  const stack = [];
+  let divisor = 1;
+  while (divisor <= numA && divisor <= numB) {
+    if (numA % divisor === 0 && numB % divisor === 0) {
+      stack.push(divisor);
+    }
+    divisor += 1;
+  }
+  return stack.pop();
+};
+
+const question = () => {
   const randomNumA = Math.round(Math.random() * 100);
   const randomNumB = Math.round(Math.random() * 100);
-  const divisorAB = (numA, numB) => {
-    const stack = [];
-    let divisor = 1;
-    while (divisor <= numA && divisor <= numB) {
-      if (numA % divisor === 0 && numB % divisor === 0) {
-        stack.push(divisor);
-      }
-      divisor += 1;
-    }
-    return stack.pop();
+
+  const correctAnswer = getDivisor(randomNumA, randomNumB);
+
+  const message = `${randomNumA} ${randomNumB}`;
+
+  const { answer, transformedAnswer } = getAnswer(message, (input) => parseInt(input, 10));
+
+  return {
+    success: correctAnswer === transformedAnswer,
+    answer,
+    correctAnswer,
   };
-  const resultAoB = divisorAB(randomNumA, randomNumB);
-
-  console.log(`Question: ${randomNumA} ${randomNumB}`);
-
-  const answer = parseInt(readlineSync.question('Your answer: '), 10);
-
-  if (resultAoB === answer) {
-    console.log('Correct!');
-
-    if (countGame > 1) {
-      return question(name, countGame - 1);
-    }
-
-    return true;
-  }
-  console.log(
-    `"${answer}" is wrong answer ;(. Correct answer was "${resultAoB}".`
-  );
-  return false;
 };
 
-export const gcd = (roundsCount = DEFAULT_ROUNDS_COUNT) => {
-  const name = greeting();
-  console.log('Find the greatest common divisor of given numbers.');
-
-  const success = question(name, roundsCount);
-
-  if (success) {
-    console.log(`Congratulations, ${name}!`);
-  } else {
-    console.log(`Let's try again, ${name}!`);
-  }
-};
+export const gcd = createGame(
+  'Find the greatest common divisor of given numbers.',
+  question,
+);
