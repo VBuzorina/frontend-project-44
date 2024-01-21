@@ -1,5 +1,5 @@
-import readlineSync from 'readline-sync';
 import { createGame } from '../createGame.js';
+import { getAnswer } from '../getAnswer.js';
 
 const question = () => {
   const randomNum = Math.round(Math.random() * 100);
@@ -7,8 +7,9 @@ const question = () => {
 
   console.log('Question:', randomNum);
 
-  const answer = readlineSync.question('Your answer: ');
-  const parsedAnswer = answer.toLocaleLowerCase() === 'yes';
+  const { answer, parsedAnswer } = getAnswer(
+    (input) => input.toLocaleLowerCase() === 'yes',
+  );
 
   if (isNumEven === parsedAnswer) {
     console.log('Correct!');
