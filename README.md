@@ -3,23 +3,24 @@
 [![Actions Status](https://github.com/VBuzorina/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/VBuzorina/frontend-project-44/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5ff3b2fb9d338da6a964/maintainability)](https://codeclimate.com/github/VBuzorina/frontend-project-44/maintainability)
 
-> #### Installation:
-> git clone  
-> make install  
-> npm link  
-> Brain-games
+### Installation:
+```  
+git clone  
+make install  
+npm link  
+```
 
-«Игры разума» — набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти её заново. Игры:
+### Brain-games
+«Игры разума» — набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти ее заново. Игры:  
 
-<ul>
-  <li>Brain-calc — Арифметические выражения, которые необходимо вычислить
-  </li>
-  <li>Brain-progression — Поиск пропущенных чисел в последовательности чисел
-  </li>
-  <li>Brain-even — Определение чётного числа
-  </li>
-  <li>Brain-gcd — Определение наибольшего общего делителя
-  </li>
-  <li>Brain-prime — Определение простого числа
-  </li>
-</ul>
+**Brain-even** Определение четного числа.  
+**Brain-calc** Арифметические выражения, которые необходимо вычислить.  
+**Brain-gcd** Определение наибольшего общего делителя.  
+**Brain-progression** Поиск пропущенных чисел в последовательности чисел.  
+**Brain-prime** Определение простого числа.  
+
+#### brain-even  
+#### brain-calc  
+#### brain-gcd  
+#### brain-progression  
+#### brain-prime  
