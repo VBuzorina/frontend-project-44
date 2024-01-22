@@ -18,9 +18,3 @@ npm link
 **Brain-gcd** Определение наибольшего общего делителя.  
 **Brain-progression** Поиск пропущенных чисел в последовательности чисел.  
 **Brain-prime** Определение простого числа.  
-
-#### brain-even  
-#### brain-calc  
-#### brain-gcd  
-#### brain-progression  
-#### brain-prime  
