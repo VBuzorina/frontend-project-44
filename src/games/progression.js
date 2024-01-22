@@ -2,18 +2,6 @@ import { createGame } from '../createGame.js';
 import { getAnswer } from '../getAnswer.js';
 import { getRandom } from '../random.js';
 
-const getDivisor = (numA, numB) => {
-  const stack = [];
-  let divisor = 1;
-  while (divisor <= numA && divisor <= numB) {
-    if (numA % divisor === 0 && numB % divisor === 0) {
-      stack.push(divisor);
-    }
-    divisor += 1;
-  }
-  return stack.pop();
-};
-
 const question = () => {
   const randomNumA = getRandom(1, 100);
   const randomNumB = getRandom(1, 100);
@@ -31,7 +19,7 @@ const question = () => {
   };
 };
 
-export const gcd = createGame(
-  'Find the greatest common divisor of given numbers.',
+export const progression = createGame(
+  'What number is missing in the progression?',
   question,
 );

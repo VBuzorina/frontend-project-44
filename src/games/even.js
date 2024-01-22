@@ -1,8 +1,10 @@
 import { createGame } from '../createGame.js';
 import { getAnswer } from '../getAnswer.js';
+import { getRandom } from '../random.js';
 
 const question = () => {
-  const randomNum = Math.round(Math.random() * 100);
+  // const randomNum = Math.round(Math.random() * 100);
+  const randomNum = getRandom(1, 100);
   const isNumEven = randomNum % 2 === 0;
 
   const message = `${randomNum}`;

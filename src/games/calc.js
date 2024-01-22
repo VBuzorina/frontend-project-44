@@ -1,11 +1,12 @@
 import { createGame } from '../createGame.js';
 import { getAnswer } from '../getAnswer.js';
+import { getRandom } from '../random.js';
 
 const question = () => {
-  const randomNumA = Math.round(Math.random() * 100);
-  const randomNumB = Math.round(Math.random() * 100);
+  const randomNumA = getRandom(1, 100);
+  const randomNumB = getRandom(1, 100);
   const symbols = ['+', '-', '*'];
-  const randomOperator = symbols[Math.floor(Math.random() * 3)];
+  const randomOperator = symbols[getRandom(0, 2)];
   let correctAnswer = 0;
 
   if (randomOperator === '+') {
