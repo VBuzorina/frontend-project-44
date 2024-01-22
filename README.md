@@ -20,4 +20,10 @@ npm link
 **Brain-prime** Определение простого числа.  
 
 #### brain-even
-[![asciicast](https://asciinema.org/a/s5ujnbBpmsSTuoMBrNVtQn8oS.svg)](https://asciinema.org/a/s5ujnbBpmsSTuoMBrNVtQn8oS)
+[![asciicast](https://asciinema.org/a/qKNURUhyUYa1fA6gcGvxs7B6X.svg)](https://asciinema.org/a/qKNURUhyUYa1fA6gcGvxs7B6X)
+
+#### brain-calc
+[![asciicast](https://asciinema.org/a/en21Un1yMgikzfSE1mB3gYLF1.svg)](https://asciinema.org/a/en21Un1yMgikzfSE1mB3gYLF1)
+
+#### brain-gcd
+[![asciicast](https://asciinema.org/a/01vIS1RjqDZFQlRbIqgYhSjdv.svg)](https://asciinema.org/a/01vIS1RjqDZFQlRbIqgYhSjdv)
