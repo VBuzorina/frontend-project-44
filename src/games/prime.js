@@ -19,7 +19,6 @@ const isPrime = (number) => {
 const question = () => {
   const randomNum = getRandom(1, 100);
   const isNumPrime = isPrime(randomNum);
-  console.log('простое ли число', isNumPrime);
 
   const message = `${randomNum}`;
 

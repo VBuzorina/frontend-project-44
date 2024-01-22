@@ -27,3 +27,9 @@ npm link
 
 #### brain-gcd
 [![asciicast](https://asciinema.org/a/01vIS1RjqDZFQlRbIqgYhSjdv.svg)](https://asciinema.org/a/01vIS1RjqDZFQlRbIqgYhSjdv)
+
+#### brain-progression
+[![asciicast](https://asciinema.org/a/G6dCYOOWqp7LwkpwrfN8vKG8F.svg)](https://asciinema.org/a/G6dCYOOWqp7LwkpwrfN8vKG8F)
+
+#### brain-prime
+[![asciicast](https://asciinema.org/a/uhL1hjtJgR3s6AgoCFNjjGMfG.svg)](https://asciinema.org/a/uhL1hjtJgR3s6AgoCFNjjGMfG)
