@@ -20,7 +20,7 @@ const question = () => {
   const randomNum = getRandom(1, 100);
   const isNumPrime = isPrime(randomNum);
 
-  const message = `${randomNum}`;
+  const message = randomNum;
 
   const { answer, transformedAnswer } = getAnswer(
     message,
