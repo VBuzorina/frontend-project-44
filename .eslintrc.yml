@@ -16,4 +16,3 @@ rules:
     - ignorePackages
     - js: always
   no-underscore-dangle: [2, { 'allow': ['__filename', '__dirname'] }]
-  import/prefer-default-export: 0

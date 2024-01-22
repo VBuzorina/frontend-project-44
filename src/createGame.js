@@ -16,3 +16,5 @@ export const createGame = (title, question) => {
 
   return game;
 };
+
+export default createGame;

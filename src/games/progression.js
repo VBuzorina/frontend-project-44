@@ -34,3 +34,5 @@ export const progression = createGame(
   'What number is missing in the progression?',
   question,
 );
+
+export default progression;

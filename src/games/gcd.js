@@ -35,3 +35,5 @@ export const gcd = createGame(
   'Find the greatest common divisor of given numbers.',
   question,
 );
+
+export default gcd;

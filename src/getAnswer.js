@@ -12,3 +12,5 @@ export const getAnswer = (message, transformAnswer = defaultTransform) => {
     transformedAnswer,
   };
 };
+
+export default getAnswer;

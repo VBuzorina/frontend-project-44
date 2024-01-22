@@ -26,3 +26,5 @@ export const even = createGame(
   'Answer "yes" if the number is even, otherwise answer "no".',
   question,
 );
+
+export default even;

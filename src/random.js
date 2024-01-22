@@ -3,3 +3,5 @@ export const getRandom = (from, to) => {
   const max = Math.floor(to);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+export default getRandom;

@@ -5,3 +5,5 @@ export const handleComplete = (name, success) => {
     console.log(`Let's try again, ${name}!`);
   }
 };
+
+export default handleComplete;

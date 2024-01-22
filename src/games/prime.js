@@ -40,3 +40,5 @@ export const prime = createGame(
   'Answer "yes" if given number is prime. Otherwise answer "no".',
   question,
 );
+
+export default prime;

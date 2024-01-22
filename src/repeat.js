@@ -15,3 +15,5 @@ export const repeat = (question, countGame) => {
 
   return result;
 };
+
+export default repeat;

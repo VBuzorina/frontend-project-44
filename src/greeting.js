@@ -7,3 +7,5 @@ export const greeting = () => {
 
   return name;
 };
+
+export default greeting;

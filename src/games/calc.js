@@ -31,3 +31,5 @@ export const calc = createGame(
   'What is the result of the expression?',
   question,
 );
+
+export default calc;
