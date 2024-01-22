@@ -1,2 +1,5 @@
-// eslint-disable-next-line max-len
-export const getRandom = (from, to) => Math.floor(Math.random() * (Math.floor(to) - Math.ceil(from) + 1)) + Math.ceil(from);
+export const getRandom = (from, to) => {
+  const min = Math.ceil(from);
+  const max = Math.floor(to);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
