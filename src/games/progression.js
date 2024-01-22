@@ -2,10 +2,10 @@ import { createGame } from '../createGame.js';
 import { getAnswer } from '../getAnswer.js';
 import { getRandom } from '../random.js';
 
-const getProgression = (number, interval) => {
+const getProgression = (number, interval, index) => {
   const numbers = [];
   let member = number;
-  while (numbers.length <= 10) {
+  while (numbers.length <= index * 2) {
     member += interval;
     numbers.push(member);
   }
@@ -13,16 +13,13 @@ const getProgression = (number, interval) => {
 };
 
 const question = () => {
-  const firstNumber = getRandom(0, 50);
-  const interval = getRandom(2, 10);
-  const index = getRandom(3, 9);
-  const arrProgression = getProgression(firstNumber, interval);
-
-  const correctAnswer = arrProgression[index].toString();
-  console.log('правильный ответ', correctAnswer);
+  const firstNumber = getRandom(0, 10);
+  const interval = getRandom(1, 5);
+  const index = getRandom(2, 5);
+  const arrProgression = getProgression(firstNumber, interval, index);
+  const correctAnswer = arrProgression[index];
   arrProgression[index] = '..';
-
-  const message = arrProgression.toString();
+  const message = arrProgression.join(' ');
 
   const { answer, transformedAnswer } = getAnswer(message, (input) => parseInt(input, 10));
 
