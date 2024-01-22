@@ -2,10 +2,24 @@ import { createGame } from '../createGame.js';
 import { getAnswer } from '../getAnswer.js';
 import { getRandom } from '../random.js';
 
+const isPrime = (number) => {
+  let i = 2;
+  while (i < number) {
+    if (number === 1) {
+      return true;
+    }
+    if (number % i === 0) {
+      return false;
+    }
+    i += 1;
+  }
+  return true;
+};
+
 const question = () => {
-  // const randomNum = Math.round(Math.random() * 100);
   const randomNum = getRandom(1, 100);
-  const isNumEven = randomNum % 2 === 0;
+  const isNumPrime = isPrime(randomNum);
+  console.log('простое ли число', isNumPrime);
 
   const message = `${randomNum}`;
 
@@ -17,7 +31,7 @@ const question = () => {
   const correctAnswer = transformedAnswer ? 'no' : 'yes';
 
   return {
-    success: isNumEven === transformedAnswer,
+    success: isNumPrime === transformedAnswer,
     answer,
     correctAnswer,
   };
