@@ -1,11 +1,9 @@
-import { createGame } from '../createGame.js';
-import { getAnswer } from '../getAnswer.js';
-import { getRandom } from '../random.js';
+import { createGame, getAnswer } from '../createGame.js';
+import { getRandom } from '../utils/random.js';
 
 const question = () => {
   const randomNum = getRandom(1, 100);
   const isNumEven = randomNum % 2 === 0;
-
   const message = `${randomNum}`;
 
   const { answer, transformedAnswer } = getAnswer(

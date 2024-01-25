@@ -1,16 +1,6 @@
-import { createGame } from '../createGame.js';
-import { getAnswer } from '../getAnswer.js';
-import { getRandom } from '../random.js';
-
-const getProgression = (number, interval, index) => {
-  const numbers = [];
-  let member = number;
-  while (numbers.length <= index * 2) {
-    member += interval;
-    numbers.push(member);
-  }
-  return numbers;
-};
+import { createGame, getAnswer } from '../createGame.js';
+import getProgression from '../utils/getProgression.js';
+import { getRandom } from '../utils/random.js';
 
 const question = () => {
   const firstNumber = getRandom(0, 10);
