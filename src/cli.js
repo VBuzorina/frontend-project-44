@@ -1,4 +1,4 @@
-import { greeting } from './createGame.js';
+import { greeting } from './utils/greeting.js';
 
 export const main = () => {
   greeting();

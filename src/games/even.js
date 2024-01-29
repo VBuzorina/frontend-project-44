@@ -1,5 +1,6 @@
-import { createGame, getAnswer } from '../createGame.js';
-import { getRandom } from '../utils/random.js';
+import { createGame } from '../utils/createGame.js';
+import { getAnswer } from '../utils/getAnswer.js';
+import { getRandom } from '../utils/getRandom.js';
 
 const question = () => {
   const randomNum = getRandom(1, 100);

@@ -1,25 +1,6 @@
-import readlineSync from 'readline-sync';
-import { DEFAULT_ROUNDS_COUNT } from './utils/constants.js';
+import { greeting } from './greeting.js';
 
-const defaultTransform = (value) => value;
-
-export const greeting = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  return name;
-};
-
-export const getAnswer = (message, transformAnswer = defaultTransform) => {
-  console.log('Question:', message);
-  const answer = readlineSync.question('Your answer: ');
-  const transformedAnswer = transformAnswer(answer);
-
-  return {
-    answer,
-    transformedAnswer,
-  };
-};
+const DEFAULT_ROUNDS_COUNT = 3;
 
 const repeat = (question, countGame) => {
   const result = question();
@@ -57,6 +38,4 @@ export const createGame = (title, question) => {
   return game;
 };
 
-export default {
-  createGame,
-};
+export default createGame;

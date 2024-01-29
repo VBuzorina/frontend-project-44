@@ -1,6 +1,18 @@
-import { createGame, getAnswer } from '../createGame.js';
-import getDivisor from '../utils/getDivisor.js';
-import { getRandom } from '../utils/random.js';
+import { createGame } from '../utils/createGame.js';
+import { getAnswer } from '../utils/getAnswer.js';
+import { getRandom } from '../utils/getRandom.js';
+
+const getDivisor = (numA, numB) => {
+  const stack = [];
+  let divisor = 1;
+  while (divisor <= numA && divisor <= numB) {
+    if (numA % divisor === 0 && numB % divisor === 0) {
+      stack.push(divisor);
+    }
+    divisor += 1;
+  }
+  return stack.pop();
+};
 
 const question = () => {
   const randomNumA = getRandom(1, 100);

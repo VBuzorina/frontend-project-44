@@ -1,6 +1,20 @@
-import { createGame, getAnswer } from '../createGame.js';
-import isPrime from '../utils/isPrime.js';
-import { getRandom } from '../utils/random.js';
+import { createGame } from '../utils/createGame.js';
+import { getAnswer } from '../utils/getAnswer.js';
+import { getRandom } from '../utils/getRandom.js';
+
+const isPrime = (number) => {
+  let i = 2;
+  while (i < number) {
+    if (number === 1) {
+      return true;
+    }
+    if (number % i === 0) {
+      return false;
+    }
+    i += 1;
+  }
+  return true;
+};
 
 const question = () => {
   const randomNum = getRandom(1, 100);
